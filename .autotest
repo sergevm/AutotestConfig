@@ -1,0 +1,12 @@
+require 'autotest/restart'
+require 'autotest/growl'
+require 'autotest/timestamp'
+
+Autotest.add_hook :initialize do |at|
+  %w{.git .svn .hg .DS_Store ._* vendor tmp log doc}.each do |exception|
+    at.add_exception(exception)
+  end
+end
+
+#Autotest::Growl::clear_terminal = false
+
